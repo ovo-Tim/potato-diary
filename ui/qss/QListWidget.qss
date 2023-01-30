@@ -1,0 +1,3 @@
+QListWidget::Item{
+	border-radius: 5px;
+}
