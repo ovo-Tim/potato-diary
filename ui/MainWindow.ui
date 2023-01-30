@@ -14,24 +14,38 @@
    <string>土豆日记</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,10">
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QWidget" name="">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QListWidget" name="function_selection"/>
+        <widget class="QListWidget" name="function_selection">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>5</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTreeView" name="treeView">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="set_btn">
@@ -41,34 +55,32 @@
         </widget>
        </item>
       </layout>
-     </item>
-     <item>
-      <widget class="QStackedWidget" name="stackedWidget">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
+     </widget>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="browse">
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
-       <property name="contextMenuPolicy">
-        <enum>Qt::DefaultContextMenu</enum>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="currentIndex">
-        <number>2</number>
-       </property>
-       <widget class="QWidget" name="browse">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-       </widget>
-       <widget class="QWidget" name="new_file"/>
-       <widget class="QWidget" name="statistics"/>
       </widget>
-     </item>
-    </layout>
+      <widget class="QWidget" name="new_file"/>
+      <widget class="QWidget" name="statistics"/>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>

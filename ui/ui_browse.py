@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'select.ui'
+## Form generated from reading UI file 'browsejzbYFj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCalendarWidget, QComboBox, QGridLayout,
-    QHBoxLayout, QHeaderView, QListWidget, QListWidgetItem,
-    QSizePolicy, QTreeView, QVBoxLayout, QWidget)
+    QHBoxLayout, QListWidget, QListWidgetItem, QSizePolicy,
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -45,11 +45,6 @@ class Ui_Form(object):
         self.verticalLayout_2.setStretch(1, 2)
 
         self.horizontalLayout.addLayout(self.verticalLayout_2)
-
-        self.treeView = QTreeView(Form)
-        self.treeView.setObjectName(u"treeView")
-
-        self.horizontalLayout.addWidget(self.treeView)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
