@@ -29,16 +29,6 @@
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,2">
-       <item>
-        <widget class="QCalendarWidget" name="calendarWidget"/>
-       </item>
-       <item>
-        <widget class="QListWidget" name="listWidget"/>
-       </item>
-      </layout>
-     </item>
-     <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QComboBox" name="comboBox"/>

@@ -1,4 +1,9 @@
 import ujson as json
+
+'''
+未完成：根据文件修改日期读取时自动刷新
+'''
+
 class tags():
     def __init__(self):
         self.refresh()
@@ -23,7 +28,7 @@ class tags():
 
     def add_article(self,tag_name,article_path):
         if tag_name in self.data['tags']: #检查tag是否存在
-            self.data['tags-article'][tag_name] = article_path # 如果存在，添加进列表
+            self.data['tags-article'][tag_name].append(article_path) # 如果存在，添加进列表
         else:
             self.add_tag(tag_name) #不存在，添加进去
             self.add_article(tag_name, article_path) #重新添加
