@@ -70,10 +70,10 @@ class MainWindow(QWidget,ui_MainWindow.Ui_Form):
         self.treeWidget.setContextMenuPolicy(Qt.CustomContextMenu)
         self.treeWidget.customContextMenuRequested.connect(self.tree_menu)
 
-        self.browse_cla.listWidget_2.itemClicked.connect(self.openfile)
+        self.browse_cla.listWidget_2.itemClicked.connect(lambda: self.openfile(self.browse_cla.listWidget_2.selectedItems()[0].text()))
 
-    def openfile(self):
-        self.edit_page = edit.editor(self.browse_cla.listWidget_2.selectedItems()[0].text())
+    def openfile(self ,article):
+        self.edit_page = edit.editor(article)
         self.edit_layout = QGridLayout()
         self.edit_layout.addWidget(self.edit_page)
         self.edit.setLayout(self.edit_layout)
@@ -128,21 +128,13 @@ class MainWindow(QWidget,ui_MainWindow.Ui_Form):
             with open(path+"/"+file_name,'w') as f:
                 f.write("")
             path = path+"/"+file_name
-            self.edit_page = edit.editor(path)
-            self.edit_layout = QGridLayout()
-            self.edit_layout.addWidget(self.edit_page)
-            self.edit.setLayout(self.edit_layout)
-            self.stackedWidget.setCurrentIndex(2)
+            self.openfile(path)
         elif q.text() == "打开":
             path = "./data/"
             for i in get_parents([self.Selected_item]):
                 path += "/"
                 path += i.text(0)
-            self.edit_page = edit.editor(path)
-            self.edit_layout = QGridLayout()
-            self.edit_layout.addWidget(self.edit_page)
-            self.edit.setLayout(self.edit_layout)
-            self.stackedWidget.setCurrentIndex(2)
+            self.openfile(path)
 
 
         # 完成后刷新

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import TinyMCE_on_Pyqt
 
-import sys
+import sys,os
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -22,6 +22,7 @@ class editor(QWidget):
         self.tags_bar = tagsBar.TagBar()
         self.tiny = TinyMCE_on_Pyqt.TinyMCE_on_PyQt_window()
         self.tiny.init()
+        self.tiny.browser.page().loadFinished.connect(self.open_file)
         self.save_btn = QPushButton("保存")
 
         self.mainLayout.addWidget(self.tags_bar)
@@ -33,14 +34,22 @@ class editor(QWidget):
 
         self.setLayout(self.mainLayout)
 
-        threading.Thread(target=self.open_file).start()
+
+        for k,v in self.tag.data["tags-article"].items():
+            if file_path in v:
+                self.tags_bar.tags.append(k)
+        self.tags_bar.refresh()
+
+        # self.open_file()
+
 
         
 
     def open_file(self):
-        time.sleep(5)
-        with open(self.file_path) as f:
-            self.tiny.set_html(f.read())
+        with open(os.path.abspath(os.path.normpath(self.file_path)), mode='r', encoding='utf-8') as f:
+            f.seek(0)
+            self.tiny.set_html(str(f.read()))
+            print(self.tiny.get_file())
 
     def save(self):
         self.tiny.save_file(self.file_path)
